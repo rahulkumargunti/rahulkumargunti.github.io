@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rahul Kumar Gunti — Data Engineer specializing in Azure, Databricks, PySpark, Snowflake, real-time data pipelines, lakehouse architecture, and cloud data engineering.">
+<meta name="keywords" content="Rahul Kumar Gunti, Data Engineer, Senior Data Engineer, Azure Data Engineer, Databricks, PySpark, Snowflake, Azure Data Factory, Spark, Delta Lake, Kafka, Event Hubs, Data Engineering, Cleveland Ohio">
+<meta name="author" content="Rahul Kumar Gunti">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rahul Kumar Gunti | Data Engineer">
+<meta property="og:description" content="Data Engineer specializing in Azure, Databricks, PySpark, Snowflake, real-time streaming, and scalable cloud data platforms.">
+<meta property="og:url" content="https://rahulgunti.com/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rahul Kumar Gunti | Data Engineer">
+<meta name="twitter:description" content="Azure & cloud data engineering portfolio — pipelines, lakehouse platforms, streaming systems, and production-scale data architecture.">
+<link rel="canonical" href="https://rahulgunti.com/">
+<title>Rahul Kumar Gunti — Data Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b1220;
+    --bg-panel: #101a2c;
+    --line: #24324a;
+    --line-soft: #1a2537;
+    --text: #e7ecf3;
+    --text-dim: #8fa0ba;
+    --text-faint: #5a6b85;
+    --copper: #e0975a;
+    --copper-dim: #8a6142;
+    --cyan: #5fc7d1;
+    --cyan-dim: #3a6e74;
+    --max: 760px;
+    --wide: 1040px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection{ background: var(--copper); color: #0b1220; }
+
+  a { color: inherit; }
+
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+
+  h1,h2,h3{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .wrap{
+    max-width: var(--wide);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .prose{
+    max-width: var(--max);
+  }
+
+  /* faint schematic grid backdrop */
+  .grid-bg{
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 60% at 30% 20%, #000 40%, transparent 90%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    overflow: hidden;
+    padding: 96px 0 72px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .kicker{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--cyan);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .kicker .dot{
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 0 3px rgba(95,199,209,0.15);
+  }
+
+  .hero h1{
+    font-size: clamp(38px, 6vw, 58px);
+    line-height: 1.08;
+    max-width: 14ch;
+  }
+
+  .hero .role{
+    color: var(--text-dim);
+    font-size: clamp(18px,2.4vw,21px);
+    margin-top: 18px;
+    max-width: 46ch;
+  }
+
+  .contact-row{
+    margin-top: 34px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+  }
+  .contact-row a{
+    text-decoration: none;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .contact-row a:hover{ color: var(--copper); border-color: var(--copper); }
+
+  /* pipeline diagram */
+  .pipeline{
+    position: relative;
+    margin-top: 64px;
+  }
+  .pipeline svg{ width: 100%; height: auto; display:block; }
+
+  .flow-dot{
+    animation: flow 3.2s linear infinite;
+  }
+  .flow-dot.d2{ animation-delay: 1.07s; }
+  .flow-dot.d3{ animation-delay: 2.14s; }
+
+  @keyframes flow{
+    0%{ offset-distance: 0%; opacity: 0; }
+    6%{ opacity: 1; }
+    94%{ opacity: 1; }
+    100%{ offset-distance: 100%; opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .flow-dot{ animation: none; opacity: .8; }
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    padding: 76px 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+
+  .section-label{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--text-faint);
+    margin-bottom: 28px;
+  }
+
+  .section-title{
+    font-size: clamp(24px, 3vw, 30px);
+    margin-bottom: 26px;
+  }
+
+  p.lede{
+    color: var(--text-dim);
+    font-size: 18px;
+  }
+
+  /* ---------- IMPACT STRIP ---------- */
+  .impact{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--line);
+  }
+  .impact-item{
+    padding: 28px 22px;
+    border-right: 1px solid var(--line);
+  }
+  .impact-item:last-child{ border-right: none; }
+  .impact-num{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(26px, 3vw, 34px);
+    color: var(--copper);
+    font-weight: 600;
+  }
+  .impact-label{
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--text-dim);
+    max-width: 20ch;
+  }
+
+  @media (max-width: 760px){
+    .impact{ grid-template-columns: 1fr 1fr; }
+    .impact-item:nth-child(2){ border-right: none; }
+  }
+  @media (max-width: 460px){
+    .impact{ grid-template-columns: 1fr; }
+    .impact-item{ border-right: none; border-bottom: 1px solid var(--line); }
+    .impact-item:last-child{ border-bottom: none; }
+  }
+
+  /* ---------- EXPERIENCE TIMELINE ---------- */
+  .timeline{
+    position: relative;
+    padding-left: 34px;
+  }
+  .timeline::before{
+    content: "";
+    position: absolute;
+    left: 5px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: var(--line);
+  }
+  .timeline::after{
+    content: "";
+    position: absolute;
+    left: 5px; top: 6px;
+    width: 2px;
+    height: 0;
+    background: linear-gradient(var(--cyan), var(--copper));
+    transition: height 1.1s cubic-bezier(.16,.8,.3,1);
+  }
+  .timeline.filled::after{ height: var(--fill, 0%); }
+
+  .role-block{
+    position: relative;
+    padding-bottom: 56px;
+  }
+  .role-block:last-child{ padding-bottom: 0; }
+
+  .role-node{
+    position: absolute;
+    left: -34px;
+    top: 5px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--text-faint);
+    transition: border-color .4s ease, background .4s ease;
+  }
+  .role-block.visible .role-node{
+    border-color: var(--copper);
+    background: var(--copper);
+  }
+
+  .role-date{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--cyan);
+  }
+  .role-title{
+    font-size: 21px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+  .role-company{
+    color: var(--text-dim);
+    font-size: 15px;
+    margin-top: 2px;
+  }
+  .role-list{
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+    max-width: var(--max);
+  }
+  .role-list li{
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    color: #cbd5e6;
+    font-size: 15.5px;
+  }
+  .role-list li::before{
+    content: "";
+    position: absolute;
+    left: 0; top: 9px;
+    width: 6px; height: 1px;
+    background: var(--text-faint);
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skill-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 48px;
+  }
+  .skill-group{
+    border-top: 1px solid var(--line);
+    padding: 20px 0;
+  }
+  .skill-cat{
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+  .skill-items{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.9;
+  }
+  .skill-items .sep{ color: var(--text-faint); }
+
+  @media (max-width: 700px){
+    .skill-grid{ grid-template-columns: 1fr; column-gap: 0; }
+  }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-row{
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .edu-row:last-child{ border-bottom: 1px solid var(--line); }
+  .edu-school{ font-weight: 600; font-family: 'Space Grotesk', sans-serif; font-size: 17px; }
+  .edu-degree{ color: var(--text-dim); font-size: 14.5px; margin-top: 4px; }
+  .edu-date{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--text-faint);
+    white-space: nowrap;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding: 64px 0 48px;
+  }
+  .footer-name{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .footer-links{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+  }
+  .footer-links a{
+    text-decoration: none;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+  }
+  .footer-links a:hover{ color: var(--copper); border-color: var(--copper); }
+  .footer-loc{
+    margin-top: 28px;
+    color: var(--text-faint);
+    font-size: 13.5px;
+  }
+
+  :focus-visible{
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+  }
+
+  /* ---------- RECRUITER NAV / CTA ---------- */
+  .top-nav{
+    position:absolute; top:20px; right:32px; z-index:5;
+    display:flex; gap:18px; align-items:center;
+    font-family:'IBM Plex Mono',monospace; font-size:12px;
+  }
+  .top-nav a{ color:var(--text-dim); text-decoration:none; }
+  .top-nav a:hover{ color:var(--copper); }
+  .hero-ctas{
+    margin-top:28px; display:flex; flex-wrap:wrap; gap:12px;
+  }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    min-height:42px; padding:9px 16px; border:1px solid var(--line);
+    text-decoration:none; font-family:'IBM Plex Mono',monospace;
+    font-size:12px; transition:.15s ease;
+  }
+  .btn.primary{ background:var(--copper); color:#0b1220; border-color:var(--copper); }
+  .btn.secondary{ color:var(--text); }
+  .btn:hover{ transform:translateY(-1px); border-color:var(--copper); }
+  .keyword-row{
+    margin-top:26px; display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .tag{
+    border:1px solid var(--line); color:var(--text-dim);
+    padding:5px 9px; font:12px 'IBM Plex Mono',monospace;
+  }
+  .proof-note{
+    margin-top:14px; color:var(--text-faint); font-size:12px;
+  }
+  .featured{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  }
+  .project{
+    border:1px solid var(--line); padding:22px; background:var(--bg-panel);
+  }
+  .project h3{ font-size:18px; margin-bottom:10px; }
+  .project p{ color:var(--text-dim); font-size:14px; margin:0 0 16px; }
+  .project .stack{ color:var(--cyan); font:12px 'IBM Plex Mono',monospace; line-height:1.7; }
+  @media(max-width:760px){
+    .top-nav{position:static; padding:18px 32px 0; justify-content:flex-end;}
+    .hero{padding-top:36px;}
+    .featured{grid-template-columns:1fr;}
+  }
+
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Rahul Kumar Gunti",
+  "jobTitle":"Data Engineer",
+  "url":"https://rahulgunti.com/",
+  "email":"mailto:guntirahul9441@gmail.com",
+  "sameAs":["https://linkedin.com/in/rahul-kumar-gunti-665a55181"],
+  "address":{"@type":"PostalAddress","addressLocality":"Cleveland","addressRegion":"OH","addressCountry":"US"},
+  "knowsAbout":["Data Engineering","Azure","Databricks","PySpark","Snowflake","Apache Spark","Kafka","Delta Lake","Python","SQL"]
+}
+</script>
+
+</head>
+<body>
+
+<header class="hero">
+  <nav class="top-nav" aria-label="Primary navigation">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+  </nav>
+  <div class="grid-bg"></div>
+  <div class="wrap" style="position:relative;">
+    <div class="kicker"><span class="dot"></span>Cleveland, Ohio</div>
+    <h1>Rahul Kumar Gunti</h1>
+    <p class="role"><strong>Data Engineer</strong> specializing in Azure, Databricks, PySpark, Snowflake, real-time streaming, and scalable lakehouse architecture.</p>
+    <div class="hero-ctas">
+      <a class="btn primary" href="mailto:guntirahul9441@gmail.com?subject=Data%20Engineering%20Opportunity">Contact me</a>
+      <a class="btn secondary" href="https://linkedin.com/in/rahul-kumar-gunti-665a55181" target="_blank" rel="noopener">View LinkedIn ↗</a>
+    </div>
+    <div class="keyword-row" aria-label="Core technologies">
+      <span class="tag">Azure</span><span class="tag">Databricks</span><span class="tag">PySpark</span>
+      <span class="tag">Snowflake</span><span class="tag">Kafka</span><span class="tag">Delta Lake</span>
+      <span class="tag">Python</span><span class="tag">SQL</span>
+    </div>
+
+    <div class="contact-row">
+      <a href="mailto:guntirahul9441@gmail.com">guntirahul9441@gmail.com</a>
+      <a href="tel:+12163369138">(216) 336-9138</a>
+      <a href="https://linkedin.com/in/rahul-kumar-gunti-665a55181" target="_blank" rel="noopener">linkedin.com/in/rahul-kumar-gunti</a>
+    </div>
+
+    <div class="pipeline">
+      <svg viewBox="0 0 980 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <path id="p1" d="M 90 80 L 340 80"/>
+          <path id="p2" d="M 420 80 L 640 80"/>
+          <path id="p3" d="M 720 80 L 900 80"/>
+        </defs>
+
+        <line x1="90" y1="80" x2="340" y2="80" stroke="#24324a" stroke-width="1.5"/>
+        <line x1="420" y1="80" x2="640" y2="80" stroke="#24324a" stroke-width="1.5"/>
+        <line x1="720" y1="80" x2="900" y2="80" stroke="#24324a" stroke-width="1.5"/>
+
+        <circle class="flow-dot" r="3.5" fill="#5fc7d1" style="offset-path:path('M 90 80 L 340 80')"/>
+        <circle class="flow-dot d2" r="3.5" fill="#5fc7d1" style="offset-path:path('M 90 80 L 340 80')"/>
+        <circle class="flow-dot d3" r="3.5" fill="#5fc7d1" style="offset-path:path('M 90 80 L 340 80')"/>
+
+        <circle class="flow-dot" r="3.5" fill="#e0975a" style="offset-path:path('M 420 80 L 640 80')"/>
+        <circle class="flow-dot d2" r="3.5" fill="#e0975a" style="offset-path:path('M 420 80 L 640 80')"/>
+
+        <circle class="flow-dot" r="3.5" fill="#5fc7d1" style="offset-path:path('M 720 80 L 900 80')"/>
+        <circle class="flow-dot d3" r="3.5" fill="#5fc7d1" style="offset-path:path('M 720 80 L 900 80')"/>
+
+        <!-- nodes -->
+        <g>
+          <rect x="20" y="56" width="70" height="48" rx="3" fill="#101a2c" stroke="#3a6e74" stroke-width="1.3"/>
+          <text x="55" y="84" text-anchor="middle" fill="#e7ecf3" font-family="IBM Plex Mono" font-size="11">sources</text>
+        </g>
+        <g>
+          <rect x="340" y="50" width="80" height="60" rx="3" fill="#101a2c" stroke="#e0975a" stroke-width="1.3"/>
+          <text x="380" y="76" text-anchor="middle" fill="#e7ecf3" font-family="IBM Plex Mono" font-size="11">ADF /</text>
+          <text x="380" y="90" text-anchor="middle" fill="#e7ecf3" font-family="IBM Plex Mono" font-size="11">Spark</text>
+        </g>
+        <g>
+          <rect x="640" y="56" width="80" height="48" rx="3" fill="#101a2c" stroke="#3a6e74" stroke-width="1.3"/>
+          <text x="680" y="84" text-anchor="middle" fill="#e7ecf3" font-family="IBM Plex Mono" font-size="11">lakehouse</text>
+        </g>
+        <g>
+          <rect x="900" y="56" width="70" height="48" rx="3" fill="#101a2c" stroke="#5fc7d1" stroke-width="1.3"/>
+          <text x="935" y="84" text-anchor="middle" fill="#e7ecf3" font-family="IBM Plex Mono" font-size="11">insight</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-label">01 — about</div>
+    <div class="prose">
+      <p class="lede">Five-plus years building cloud-scale data architecture on Azure and Snowflake — the kind that has to hold up under an audit, not just a demo.</p>
+      <p>I design ETL and ELT pipelines, real-time streaming systems, and lakehouse platforms for organizations where getting the data wrong has real consequences: Medicaid claims, investment risk reports, telecom infrastructure. That means building for HIPAA and GDPR compliance from the start, not bolting it on afterward. Lately I've been pulling AI and graph analytics — Neo4j, Cosmos DB Graph API — into that same pipeline work, so the data doesn't just arrive on time, it gets easier to reason about once it's there.</p>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <div class="wrap">
+    <div class="section-label">02 — scale</div>
+    <div class="impact">
+      <div class="impact-item">
+        <div class="impact-num">500M+</div>
+        <div class="impact-label">Medicaid records processed daily</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-num">100K+</div>
+        <div class="impact-label">events per second streamed in real time</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-num">200TB+</div>
+        <div class="impact-label">managed across lakehouse storage</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-num">99.9%</div>
+        <div class="impact-label">pipeline uptime maintained in production</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="featured">
+  <div class="wrap">
+    <div class="section-label">03 — featured work</div>
+    <h2 class="section-title">What I build</h2>
+    <div class="featured">
+      <article class="project">
+        <h3>Cloud Data Platforms</h3>
+        <p>Production ETL/ELT and lakehouse architectures built for high-volume healthcare and enterprise data workloads.</p>
+        <div class="stack">Azure Data Factory · Databricks · PySpark · ADLS · Delta Lake</div>
+      </article>
+      <article class="project">
+        <h3>Real-Time Streaming</h3>
+        <p>High-throughput streaming pipelines designed for real-time eligibility, telemetry, and event-driven analytics.</p>
+        <div class="stack">Kafka · Event Hubs · Spark Streaming · Python</div>
+      </article>
+      <article class="project">
+        <h3>Analytics &amp; Data Warehousing</h3>
+        <p>Warehouse and semantic modeling that improves query performance, reporting, forecasting, and self-service analytics.</p>
+        <div class="stack">Snowflake · Synapse · SQL · Power BI · Star/Snowflake schemas</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-label">04 — experience</div>
+    <h2 class="section-title">Outcomes, not just tasks</h2>
+
+    <div class="timeline" id="timeline">
+      <div class="role-block">
+        <div class="role-node"></div>
+        <div class="role-date">Apr 2024 — Present</div>
+        <div class="role-title">Data Engineer</div>
+        <div class="role-company">Source Sphere</div>
+        <ul class="role-list">
+          <li>Delivered reliable processing of 500M+ Medicaid records per day at 99.9% uptime by architecting ETL/ELT workflows on Azure Data Factory, PySpark, and Databricks.</li>
+          <li>Reduced storage costs 40% and improved analytics query performance 50% by building a Delta Lake lakehouse that unified 50+ data sources.</li>
+          <li>Enabled instant Medicaid eligibility verification at 100K+ events per second by developing real-time streaming pipelines on Event Hubs and Kafka.</li>
+          <li>Cut deployment time 60% and eliminated manual errors by automating ETL pipeline deployment with Azure DevOps CI/CD, Terraform, and Bicep.</li>
+          <li>Standardized 8 enterprise Azure patterns adopted company-wide by mentoring a 5-person engineering team through 20+ architecture reviews.</li>
+        </ul>
+      </div>
+
+      <div class="role-block">
+        <div class="role-node"></div>
+        <div class="role-date">Feb 2023 — Mar 2024</div>
+        <div class="role-title">Cloud Data Engineer</div>
+        <div class="role-company">Pinnacle ARC</div>
+        <ul class="role-list">
+          <li>Processed 2TB+ of financial data daily by designing and deploying hybrid on-prem/Azure ETL pipelines with ADF, Databricks, and Python.</li>
+          <li>Enabled self-service analytics for 200+ portfolio managers by developing star and snowflake models supporting 50+ investment risk reports.</li>
+          <li>Improved query performance 35% and cut compute spend 30% by optimizing Synapse and Snowflake warehouse architectures.</li>
+          <li>Cut release time from 8 hours to 45 minutes by building Azure DevOps CI/CD pipelines that automated 30+ deployments monthly.</li>
+          <li>Improved forecast accuracy 25% and enabled $50M+ in optimized capital allocation by integrating ML-based predictive analytics into Synapse.</li>
+        </ul>
+      </div>
+
+      <div class="role-block">
+        <div class="role-node"></div>
+        <div class="role-date">Jan 2020 — Jun 2022</div>
+        <div class="role-title">Data Engineer</div>
+        <div class="role-company">Iron Mountain Data Centers</div>
+        <ul class="role-list">
+          <li>Processed 200K+ events per second for rapid EPG data integration by developing high-throughput real-time pipelines on Event Hubs and Kafka.</li>
+          <li>Enabled 50+ analytics and ML models by building scalable ADLS-based data lakes storing 500GB+ of structured and semi-structured data.</li>
+          <li>Cut query latency from 10 minutes to 30 seconds for content performance insights by redesigning analytics on Azure Synapse and Power BI.</li>
+          <li>Maintained 99.95% uptime for 10+ critical streaming pipelines serving 5M+ daily users by designing high-availability failover strategies.</li>
+          <li>Cut manual provisioning time 70% by automating infrastructure deployment of 50+ cloud resources with Terraform and Bicep.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-label">05 — stack</div>
+    <h2 class="section-title">What it's built with</h2>
+
+    <div class="skill-grid">
+      <div class="skill-group">
+        <div class="skill-cat">Cloud platforms</div>
+        <div class="skill-items">Azure ADF <span class="sep">/</span> Synapse <span class="sep">/</span> ADLS <span class="sep">/</span> Fabric <span class="sep">/</span> Event Hubs <span class="sep">/</span> Key Vault<br>AWS Glue <span class="sep">/</span> Redshift <span class="sep">/</span> S3<br>GCP BigQuery <span class="sep">/</span> Dataflow</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">Data processing</div>
+        <div class="skill-items">PySpark <span class="sep">/</span> Spark Streaming <span class="sep">/</span> Delta Lake<br>dbt <span class="sep">/</span> Airflow <span class="sep">/</span> Informatica <span class="sep">/</span> Talend</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">Databases &amp; modeling</div>
+        <div class="skill-items">PostgreSQL <span class="sep">/</span> SQL Server <span class="sep">/</span> MongoDB <span class="sep">/</span> Cassandra <span class="sep">/</span> DynamoDB<br>Neo4j <span class="sep">/</span> Cosmos DB Graph API<br>Star &amp; snowflake schema design</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">Platform &amp; ops</div>
+        <div class="skill-items">Terraform <span class="sep">/</span> Bicep <span class="sep">/</span> Azure DevOps <span class="sep">/</span> GitHub Actions <span class="sep">/</span> Jenkins<br>Power BI <span class="sep">/</span> Grafana <span class="sep">/</span> Prometheus</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-items">Python <span class="sep">/</span> SQL <span class="sep">/</span> Scala <span class="sep">/</span> Java <span class="sep">/</span> Bash</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-cat">AI / ML</div>
+        <div class="skill-items">Azure ML <span class="sep">/</span> PyTorch <span class="sep">/</span> TensorFlow <span class="sep">/</span> Scikit-learn<br>Generative AI <span class="sep">/</span> Feature engineering</div>
+      </div>
+      <div class="skill-group" style="grid-column: 1 / -1;">
+        <div class="skill-cat">Security &amp; governance</div>
+        <div class="skill-items">RBAC <span class="sep">/</span> OAuth 2.0 <span class="sep">/</span> Key Vault <span class="sep">/</span> Azure Purview <span class="sep">/</span> data lineage <span class="sep">/</span> HIPAA <span class="sep">/</span> GDPR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-label">06 — education</div>
+    <h2 class="section-title">Foundations</h2>
+
+    <div class="edu-row">
+      <div>
+        <div class="edu-school">Campbellsville University</div>
+        <div class="edu-degree">Master's, Data Science with Artificial Intelligence — GPA 3.62/4</div>
+      </div>
+      <div class="edu-date">Jan 2023 — Dec 2024</div>
+    </div>
+    <div class="edu-row">
+      <div>
+        <div class="edu-school">Jawaharlal Nehru Technological University, Hyderabad</div>
+        <div class="edu-degree">Bachelor's, Electronics and Communication Engineering — GPA 6.42/10</div>
+      </div>
+      <div class="edu-date">Jul 2017 — Aug 2021</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-name">Let's talk pipelines.</div>
+    <div class="footer-links">
+      <a href="mailto:guntirahul9441@gmail.com">guntirahul9441@gmail.com</a>
+      <a href="tel:+12163369138">(216) 336-9138</a>
+      <a href="https://linkedin.com/in/rahul-kumar-gunti-665a55181" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="footer-loc">Cleveland, Ohio, United States</div>
+  </div>
+</footer>
+
+<script>
+  // Scroll-linked pipeline fill for the experience timeline
+  const timeline = document.getElementById('timeline');
+  const blocks = Array.from(document.querySelectorAll('.role-block'));
+
+  function updateTimeline(){
+    const rect = timeline.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const total = rect.height;
+    let visiblePx = (vh * 0.7) - rect.top;
+    visiblePx = Math.max(0, Math.min(total, visiblePx));
+    const pct = total > 0 ? (visiblePx / total) * 100 : 0;
+    timeline.style.setProperty('--fill', pct + '%');
+    timeline.classList.add('filled');
+
+    blocks.forEach(block => {
+      const b = block.getBoundingClientRect();
+      if (b.top < vh * 0.75) block.classList.add('visible');
+    });
+  }
+
+  window.addEventListener('scroll', updateTimeline, { passive: true });
+  window.addEventListener('resize', updateTimeline);
+  updateTimeline();
+</script>
+
+</body>
+</html>
